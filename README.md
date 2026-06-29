@@ -1,11 +1,34 @@
 <h1 align="center">Gerador de Senhas</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
 </p>
 
+<br/>
+
 <p align="center">
-  <img src="./preview.png" alt="Password Generator preview" width="500"/>
+  Gerador de senhas seguras direto no navegador, sem dependências e sem frameworks.<br/>
+  Configure, gere e copie sua senha em segundos.
 </p>
+
+<br/>
+
+<p align="center">
+  <img src="./preview.png" alt="Gerador de Senhas preview" width="600"/>
+</p>
+
+<br/>
+
+---
+
+**Funcionalidades**
+
+- Senhas de até 64 caracteres
+- Seleção de caracteres: letras maiúsculas, minúsculas, números e símbolos
+- Medidor de força: fraca, média ou forte
+- Botão para gerar nova senha
+- Botão para copiar com um clique
+
+---
