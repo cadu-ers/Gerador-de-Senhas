@@ -32,3 +32,14 @@
 - Botão para copiar com um clique
 
 ---
+
+**Como rodar**
+
+1. Clone o repositório
+```bash
+git clone https://github.com/cadu-ers/Gerador-de-Senhas.git
+```
+2. Abra a pasta no VS Code
+3. Clique com o botão direito no `index.html` e selecione **Open with Live Server**
+
+---
