@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Password Generator</h1>
+            <p>Generate secure, random passwords</p>
+        </header>
+
+        <section class="card">
+            <div class="password-display">
+                <input type="text" id="passwordDisplay" readonly placeholder="Your password will appear here">
+            </div>
+
+            <div class="actions">
+                <button id="generateBtn" class="btn btn-primary">Generate Password</button>
+                <button id="copyBtn" class="btn btn-secondary">Copy</button>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="lengthSlider">Length: <span id="lengthValue">16</span></label>
+                    <input type="range" id="lengthSlider" min="6" max="64" value="16">
+                </div>
+
+                <div class="character-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="uppercase" checked>
+                        <span>Uppercase (A-Z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="lowercase" checked>
+                        <span>Lowercase (a-z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="numbers" checked>
+                        <span>Numbers (0-9)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="symbols" checked>
+                        <span>Symbols (!@#$%)</span>
+                    </label>
+                </div>
+
+                <div class="strength-indicator">
+                    <span>Strength: <span id="strengthText">Medium</span></span>
+                    <div class="strength-bars">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
