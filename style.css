@@ -5,24 +5,46 @@
     box-sizing: border-box;
 }
 
-/* Variáveis de cores (usa isso em todo o CSS) */
+/* Variáveis de cores */
 :root {
-    --bg-dark: #1a1a2e;
-    --bg-card: #16213e;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --primary-color: #00d4ff;
-    --danger-color: #ff6b6b;
-    --warning-color: #ffa500;
-    --success-color: #51cf66;
+    --bg: #F5F4F2;
+    --card-bg: #FFFFFF;
+    --field-bg: #F0EFED;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --text-primary: #1A1A18;
+    --text-secondary: #6B6B65;
+    --toggle-off: #D8D6D2;
+    --toggle-on: #1A1A18;
+    --toggle-thumb: #FFFFFF;
+    --primary-bg: #1A1A18;
+    --primary-text: #FFFFFF;
+    --bar-empty: #E3E1DD;
+    --color-red: #E0524D;
+    --color-amber: #E0A23D;
+    --color-green: #3FA66B;
+    --color-teal: #2BA3A3;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1A1A18;
+        --card-bg: #232320;
+        --field-bg: #2A2A26;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --text-primary: #F5F4F2;
+        --text-secondary: #9A9A92;
+        --toggle-off: #3A3A36;
+        --bar-empty: #34342F;
+    }
 }
 
 /* Body - fundo da página */
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
     color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -33,217 +55,258 @@ body {
 /* Container - envolve tudo e centraliza */
 .container {
     width: 100%;
-    max-width: 600px;
+    max-width: 420px;
 }
 
 /* Header - título */
 .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .header h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-    color: var(--primary-color);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 6px;
 }
 
 .header p {
     font-size: 14px;
+    font-weight: 400;
     color: var(--text-secondary);
 }
 
 /* Card - o box principal */
 .card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
-    padding: 30px;
-    border: 1px solid rgba(0, 212, 255, 0.1);
+    background-color: var(--card-bg);
+    border: 0.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
-/* Exibição da senha */
-.password-display {
-    margin-bottom: 30px;
+/* Campo de senha */
+.password-field {
+    position: relative;
+    margin-bottom: 1.75rem;
 }
 
-.password-display input {
+.password-field input {
     width: 100%;
-    padding: 15px;
-    background-color: #0f3460;
-    border: 1px solid var(--primary-color);
-    border-radius: 8px;
+    padding: 14px 84px 14px 16px;
+    background-color: var(--field-bg);
+    border: none;
+    border-radius: 10px;
     color: var(--text-primary);
-    font-family: 'Courier New', monospace;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     font-size: 14px;
-    cursor: not-allowed;
+    cursor: text;
+}
+
+.password-field input::placeholder {
+    color: var(--text-secondary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.field-actions {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 4px;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.icon-btn:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.icon-btn.icon-btn-primary {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+}
+
+.icon-btn.icon-btn-primary:hover {
+    background-color: var(--primary-bg);
+    opacity: 0.85;
 }
 
 /* Seção de controles */
 .controls {
-    margin-bottom: 30px;
-}
-
-.control-group {
-    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .control-group label {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--text-secondary);
 }
 
 .control-group input[type="range"] {
     width: 100%;
-    height: 6px;
-    border-radius: 3px;
-    background: linear-gradient(to right, #0f3460, var(--primary-color));
+    height: 3px;
+    border-radius: 1.5px;
+    background: var(--toggle-off);
     outline: none;
+    appearance: none;
     -webkit-appearance: none;
 }
 
 .control-group input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: var(--toggle-on);
+    border: 2.5px solid var(--toggle-thumb);
     cursor: pointer;
 }
 
 .control-group input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: var(--toggle-on);
+    border: 2.5px solid var(--toggle-thumb);
     cursor: pointer;
-    border: none;
 }
 
-/* Opções de caracteres (checkboxes) */
+.control-group input[type="range"]::-moz-range-track {
+    height: 3px;
+    border-radius: 1.5px;
+    background: var(--toggle-off);
+}
+
+/* Opções de caracteres (toggles) */
 .character-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.checkbox-label {
+.toggle-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
     cursor: pointer;
+}
+
+.toggle-label {
     font-size: 14px;
-    color: var(--text-secondary);
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
+    font-weight: 400;
+    color: var(--text-primary);
 }
 
-.checkbox-label:hover {
-    border-color: var(--primary-color);
-    background-color: rgba(0, 212, 255, 0.05);
+.toggle {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
-.checkbox-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
+.toggle input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    margin: 0;
     cursor: pointer;
-    accent-color: var(--primary-color);
 }
 
-.checkbox-label span {
-    font-size: 13px;
+.toggle-track {
+    position: absolute;
+    inset: 0;
+    background-color: var(--toggle-off);
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--toggle-thumb);
+    transition: transform 0.2s ease;
+}
+
+.toggle input:checked ~ .toggle-track {
+    background-color: var(--toggle-on);
+}
+
+.toggle input:checked ~ .toggle-track .toggle-thumb {
+    transform: translateX(16px);
 }
 
 /* Indicador de força */
-.strength-indicator {
-    margin-bottom: 25px;
-    padding: 15px;
-    background-color: #0f3460;
-    border-radius: 8px;
-}
-
 .strength-indicator span:first-child {
     display: block;
-    margin-bottom: 8px;
-    font-size: 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--text-secondary);
 }
 
 #strengthText {
     color: var(--text-primary);
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .strength-bars {
     display: flex;
-    gap: 6px;
+    gap: 4px;
 }
 
 .bar {
     flex: 1;
-    height: 6px;
-    border-radius: 3px;
-    background-color: #444;
-    transition: background-color 0.3s ease;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: var(--bar-empty);
+    transition: background-color 0.2s ease;
 }
 
-.bar.weak {
-    background-color: var(--danger-color);
+.bar:nth-child(1).weak,
+.bar:nth-child(1).medium,
+.bar:nth-child(1).strong {
+    background-color: var(--color-red);
 }
 
-.bar.medium {
-    background-color: var(--warning-color);
+.bar:nth-child(2).medium,
+.bar:nth-child(2).strong {
+    background-color: var(--color-amber);
 }
 
-.bar.strong {
-    background-color: var(--success-color);
+.bar:nth-child(3).strong {
+    background-color: var(--color-green);
 }
 
-/* Botões */
-.actions {
-    display: flex;
-    gap: 15px;
+.bar:nth-child(4).strong {
+    background-color: var(--color-teal);
 }
-
-.btn {
-    flex: 1;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--bg-dark);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
-}
-
-.btn-primary:active {
-    transform: translateY(0);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(0, 212, 255, 0.1);
-}
-
-

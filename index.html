@@ -9,50 +9,61 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>Password Generator</h1>
+            <h1>Password generator</h1>
             <p>Generate secure, random passwords</p>
         </header>
 
         <section class="card">
-            <div class="password-display">
+            <div class="password-field">
                 <input type="text" id="passwordDisplay" readonly placeholder="Your password will appear here">
-            </div>
-
-            <div class="actions">
-                <button id="generateBtn" class="btn btn-primary">Generate Password</button>
-                <button id="copyBtn" class="btn btn-secondary">Copy</button>
+                <div class="field-actions">
+                    <button id="copyBtn" class="icon-btn" title="Copy password" aria-label="Copy password">⧉</button>
+                    <button id="generateBtn" class="icon-btn icon-btn-primary" title="Generate new password" aria-label="Generate new password">⟳</button>
+                </div>
             </div>
 
             <div class="controls">
                 <div class="control-group">
-                    <label for="lengthSlider">Length: <span id="lengthValue">16</span></label>
+                    <label for="lengthSlider">Length <span id="lengthValue">16</span></label>
                     <input type="range" id="lengthSlider" min="6" max="64" value="16">
                 </div>
 
                 <div class="character-options">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="uppercase" checked>
-                        <span>Uppercase (A-Z)</span>
+                    <label class="toggle-row">
+                        <span class="toggle-label">Uppercase (A-Z)</span>
+                        <span class="toggle">
+                            <input type="checkbox" id="uppercase" checked>
+                            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </span>
                     </label>
 
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="lowercase" checked>
-                        <span>Lowercase (a-z)</span>
+                    <label class="toggle-row">
+                        <span class="toggle-label">Lowercase (a-z)</span>
+                        <span class="toggle">
+                            <input type="checkbox" id="lowercase" checked>
+                            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </span>
                     </label>
 
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="numbers" checked>
-                        <span>Numbers (0-9)</span>
+                    <label class="toggle-row">
+                        <span class="toggle-label">Numbers (0-9)</span>
+                        <span class="toggle">
+                            <input type="checkbox" id="numbers" checked>
+                            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </span>
                     </label>
 
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="symbols" checked>
-                        <span>Symbols (!@#$%)</span>
+                    <label class="toggle-row">
+                        <span class="toggle-label">Symbols (!@#$%)</span>
+                        <span class="toggle">
+                            <input type="checkbox" id="symbols" checked>
+                            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </span>
                     </label>
                 </div>
 
                 <div class="strength-indicator">
-                    <span>Strength: <span id="strengthText">Medium</span></span>
+                    <span>Strength <span id="strengthText">Medium</span></span>
                     <div class="strength-bars">
                         <div class="bar"></div>
                         <div class="bar"></div>
