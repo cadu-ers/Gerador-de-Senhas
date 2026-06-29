@@ -16,7 +16,7 @@
 <br/>
 
 <p align="center">
-  <img src="./preview.png" alt="Gerador de Senhas preview" width="600"/>
+  <img src="./preview.png" alt="Gerador de Senhas preview" width="600" style="border-radius: 12px; border: 1px solid #30363d; box-shadow: 0 8px 24px rgba(0,0,0,0.4);"/>
 </p>
 
 <br/>
