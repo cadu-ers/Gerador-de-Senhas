@@ -29,7 +29,7 @@
 - Seleção de caracteres: letras maiúsculas, minúsculas, números e símbolos
 - Medidor de força: fraca, média ou forte
 - Botão para gerar nova senha
-- Botão para copiar com um clique.
+- Botão para copiar com um clique
 
 ---
 
