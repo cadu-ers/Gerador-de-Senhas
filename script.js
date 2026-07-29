@@ -10,6 +10,7 @@ const uppercaseCheckbox = document.getElementById('uppercase');
 const lowercaseCheckbox = document.getElementById('lowercase');
 const numbersCheckbox = document.getElementById('numbers');
 const symbolsCheckbox = document.getElementById('symbols');
+const excludeAmbiguousCheckbox = document.getElementById('excludeAmbiguous');
 
 // Elementos de força
 const strengthText = document.getElementById('strengthText');
@@ -22,6 +23,9 @@ const charsets = {
     numbers: '0123456789',
     symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?'
 };
+
+// Caracteres considerados ambíguos (fáceis de confundir visualmente)
+const ambiguousChars = 'il1LoO0';
 
 // Variável que guarda a senha atual
 let currentPassword = '';
@@ -39,6 +43,14 @@ function generatePassword() {
     if (lowercaseCheckbox.checked) availableCharacters += charsets.lowercase;
     if (numbersCheckbox.checked) availableCharacters += charsets.numbers;
     if (symbolsCheckbox.checked) availableCharacters += charsets.symbols;
+    
+    // Remove caracteres ambíguos, se a opção estiver marcada
+    if (excludeAmbiguousCheckbox.checked) {
+        availableCharacters = availableCharacters
+            .split('')
+            .filter(char => !ambiguousChars.includes(char))
+            .join('');
+    }
     
     // Validação: pelo menos um tipo precisa estar selecionado
     if (availableCharacters.length === 0) {
@@ -142,6 +154,7 @@ uppercaseCheckbox.addEventListener('change', generatePassword);
 lowercaseCheckbox.addEventListener('change', generatePassword);
 numbersCheckbox.addEventListener('change', generatePassword);
 symbolsCheckbox.addEventListener('change', generatePassword);
+excludeAmbiguousCheckbox.addEventListener('change', generatePassword);
 
 // Quando clica no botão "Copy"
 copyBtn.addEventListener('click', copyPassword);
